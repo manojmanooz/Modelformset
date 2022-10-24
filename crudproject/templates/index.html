@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+            <input type="submit" class="btn btn-primary" value="Add" style="width:150px">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>SI No</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in form %}
+
+                <tr>
+                <form method="get">
+                {% csrf_token %}
+
+                   {{form.management_form}}
+                    {% for hidden in i.hidden_fields %}
+                        {{ hidden }}
+                    {% endfor %}
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.age}}</td>
+                <td><input type="submit" class="submit"></td>
+                </form>
+                </tr>
+
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+    <script src=
+        "https://code.jquery.com/jquery-3.5.1.min.js">
+    </script>
+
+    <script>
+<!--        $('.submit').click(function(){-->
+<!--                ('#1').submit();-->
+<!--                });-->
+    </script>
+</body>
+</html>
